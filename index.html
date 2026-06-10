@@ -17,55 +17,110 @@
   --accent:#3d6b4f;
   --accent-light:#e8f0eb;
   --rule:#ddd8ce;
+  --green-dark:#2e5139;
+  --blue:#2a5bd7;
+  --amber:#c97b2a;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;font-size:16px}
 
+/* NAV */
 nav{
-  position:sticky;top:0;z-index:50;
+  position:sticky;top:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
   padding:1.1rem 3rem;
   background:rgba(245,240,232,0.95);
   border-bottom:1px solid var(--rule);
-  backdrop-filter:blur(6px);
+  backdrop-filter:blur(8px);
 }
-.nav-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);text-decoration:none}
+.nav-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);text-decoration:none;letter-spacing:-0.01em}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.82rem;text-decoration:none;color:var(--muted);letter-spacing:0.03em;transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
 
-.wrap{max-width:940px;margin:0 auto;padding:0 3rem}
+.wrap{max-width:960px;margin:0 auto;padding:0 3rem}
 
+/* HERO */
 #hero{
-  padding:5rem 0 4.5rem;
-  display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:end;
+  min-height:92vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:5rem 3rem 4rem;
+  max-width:960px;margin:0 auto;
   border-bottom:1px solid var(--rule);
 }
-.hero-eyebrow{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem}
+.hero-eyebrow{
+  font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--muted)}
 .hero-name{
   font-family:'DM Serif Display',serif;
-  font-size:clamp(3rem,5.5vw,5rem);
-  line-height:1.02;letter-spacing:-0.01em;
+  font-size:clamp(4rem,9vw,7.5rem);
+  line-height:0.95;letter-spacing:-0.02em;
+  margin-bottom:1.5rem;
 }
 .hero-name em{font-style:italic;color:var(--accent)}
-.hero-pills{margin-top:1.1rem;display:flex;gap:0.5rem;flex-wrap:wrap}
-.pill{font-size:0.76rem;background:var(--warm);border:1px solid var(--rule);padding:0.25rem 0.75rem;border-radius:2rem;color:var(--muted)}
-.hero-bio{font-size:1.05rem;font-weight:300;line-height:1.8;color:#3a3630}
-.hero-bio strong{font-weight:500}
-.hero-bio p+p{margin-top:1rem}
+.hero-bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:2rem;flex-wrap:wrap;
+}
+.hero-bio{
+  font-size:1.05rem;font-weight:300;line-height:1.8;
+  color:#4a4540;max-width:480px;
+}
+.hero-bio strong{font-weight:500;color:var(--ink)}
+.hero-pills{display:flex;gap:0.5rem;flex-wrap:wrap;align-self:flex-end}
+.pill{
+  font-size:0.76rem;background:var(--warm);border:1px solid var(--rule);
+  padding:0.3rem 0.85rem;border-radius:2rem;color:var(--muted);
+  transition:background .2s,color .2s,border-color .2s;
+}
+.pill:hover{background:var(--ink);color:var(--sand);border-color:var(--ink)}
 
-section{padding:4.5rem 0;border-bottom:1px solid var(--rule)}
-section:last-of-type{border-bottom:none}
+/* SECTIONS */
+section{padding:5rem 0;border-bottom:1px solid var(--rule)}
 .sec-label{
-  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:2.5rem;
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3rem;
   display:flex;align-items:center;gap:1rem;
 }
 .sec-label::after{content:'';flex:1;height:1px;background:var(--rule)}
 
+/* THEMES */
+.theme-grid{display:flex;flex-direction:column;gap:0}
+.theme-block{
+  display:grid;grid-template-columns:1fr 2fr;gap:3rem;
+  padding:3rem 0;border-bottom:1px solid var(--rule);
+  align-items:start;
+}
+.theme-block:last-child{border-bottom:none}
+.theme-left{}
+.theme-color-bar{width:3px;height:2.5rem;border-radius:2px;margin-bottom:1.25rem}
+.bar-green{background:var(--accent)}
+.bar-blue{background:var(--blue)}
+.bar-amber{background:var(--amber)}
+.theme-title{
+  font-family:'DM Serif Display',serif;
+  font-size:1.75rem;line-height:1.1;letter-spacing:-0.01em;
+  margin-bottom:0.75rem;
+}
+.theme-tagline{font-size:0.875rem;color:var(--muted);line-height:1.6;font-weight:300}
+.theme-right{}
+.theme-intro{
+  font-size:1rem;font-weight:300;line-height:1.8;color:#4a4540;
+  margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--warm);
+}
+.theme-roles{display:flex;flex-direction:column;gap:1rem}
+.theme-role{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.theme-role-left{}
+.theme-role-name{font-size:0.9rem;font-weight:500;margin-bottom:0.15rem}
+.theme-role-org{font-size:0.82rem;color:var(--accent)}
+.theme-role-date{font-size:0.78rem;color:var(--muted);white-space:nowrap;flex-shrink:0}
+
 /* RESEARCH */
 .research-item{
-  display:grid;grid-template-columns:100px 1fr;gap:2rem;
+  display:grid;grid-template-columns:90px 1fr;gap:2rem;
   padding:1.75rem 0;border-bottom:1px solid var(--rule);
 }
 .research-item:last-child{border-bottom:none}
@@ -73,65 +128,77 @@ section:last-of-type{border-bottom:none}
   font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;
   color:var(--accent);background:var(--accent-light);
   padding:0.3rem 0.6rem;border-radius:2rem;
-  text-align:center;white-space:nowrap;margin-top:0.2rem;
-  display:inline-block;
+  text-align:center;white-space:nowrap;display:inline-block;
 }
 .r-title{font-size:1rem;font-weight:500;line-height:1.4;margin-bottom:0.5rem}
 .r-desc{font-size:0.9rem;color:#5a5550;line-height:1.65}
 .r-where{font-size:0.8rem;color:var(--muted);margin-top:0.5rem;font-style:italic}
 
-/* EXPERIENCE */
-.exp-item{
-  display:grid;grid-template-columns:110px 1fr;gap:2rem;
-  padding:1.75rem 0;border-bottom:1px solid var(--rule);
-}
-.exp-item:last-child{border-bottom:none}
-.exp-date{font-size:0.8rem;color:var(--muted);padding-top:0.25rem;line-height:1.5}
-.exp-role{font-size:1rem;font-weight:500}
-.exp-org{font-size:0.9rem;color:var(--accent);margin:0.2rem 0 0.5rem}
-.exp-bullets{padding-left:1rem;margin:0}
-.exp-bullets li{font-size:0.875rem;color:#5a5550;line-height:1.65;margin-bottom:0.3rem;list-style:disc}
-.exp-bullets li:last-child{margin-bottom:0}
-.exp-context{font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;font-style:italic}
-
-/* EDUCATION */
-.edu-item{
-  display:grid;grid-template-columns:110px 1fr;gap:2rem;
-  padding:1.75rem 0;border-bottom:1px solid var(--rule);
-}
-.edu-item:last-child{border-bottom:none}
-.edu-date{font-size:0.8rem;color:var(--muted);padding-top:0.25rem}
-.edu-school{font-size:1rem;font-weight:500}
-.edu-degree{font-size:0.9rem;color:var(--accent);margin:0.2rem 0 0.4rem}
-.edu-detail{font-size:0.875rem;color:#5a5550;line-height:1.65}
-.edu-honors{display:inline-block;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:0.25rem 0.6rem;border-radius:2rem;margin-top:0.5rem}
-
-/* HOBBIES */
-.hobbies-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1px;background:var(--rule);border:1px solid var(--rule);
-}
-.hobby-card{background:var(--sand);padding:1.6rem 1.5rem}
-.hobby-icon{font-size:1.4rem;margin-bottom:0.6rem}
-.hobby-name{font-size:0.95rem;font-weight:500;margin-bottom:0.35rem}
-.hobby-desc{font-size:0.84rem;color:var(--muted);line-height:1.55}
-
-/* PHOTOS */
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
-.photo-slot{
-  aspect-ratio:1;overflow:hidden;border-radius:4px;
-  background:var(--warm);border:1px solid var(--rule);
-}
-.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
+/* INTERESTS */
+.interests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.interest-card{background:var(--sand);padding:1.75rem 1.5rem}
+.interest-label{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem}
+.interest-name{font-size:1.1rem;font-weight:500;margin-bottom:0.5rem}
+.interest-desc{font-size:0.85rem;color:#5a5550;line-height:1.6;font-weight:300}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
-.skill-group-label{font-size:0.75rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
+.skills-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--rule)}
+.skill-group-label{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
 .skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
 .skill-tag{font-size:0.8rem;background:var(--warm);border:1px solid var(--rule);padding:0.2rem 0.65rem;border-radius:2rem;color:#3a3630}
 
+/* PHOTOS */
+.photo-intro{font-size:1rem;font-weight:300;color:#4a4540;line-height:1.8;max-width:520px;margin-bottom:2.5rem}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem}
+.photo-item{cursor:pointer;position:relative;overflow:hidden;border-radius:4px}
+.photo-item img{
+  width:100%;aspect-ratio:3/2;object-fit:cover;display:block;
+  transition:transform .4s ease;filter:saturate(0.92);
+}
+.photo-item:hover img{transform:scale(1.03)}
+.photo-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(15,12,8,0.75));
+  color:white;font-size:0.75rem;padding:1.5rem 0.75rem 0.6rem;
+  opacity:0;transition:opacity .3s;
+  line-height:1.4;
+}
+.photo-item:hover .photo-caption{opacity:1}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(13,10,7,0.92);
+  align-items:center;justify-content:center;
+  padding:2rem;
+}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:900px;width:100%}
+.lightbox img{width:100%;max-height:80vh;object-fit:contain;border-radius:4px;display:block}
+.lightbox-cap{color:#c8c0b0;font-size:0.85rem;margin-top:1rem;text-align:center;font-style:italic}
+.lightbox-close{
+  position:absolute;top:-2.5rem;right:0;
+  background:none;border:none;color:#c8c0b0;font-size:1.5rem;
+  cursor:pointer;line-height:1;padding:0.25rem;
+}
+.lightbox-close:hover{color:white}
+.lb-prev,.lb-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  color:white;font-size:1.2rem;cursor:pointer;
+  padding:0.6rem 0.85rem;border-radius:4px;
+  transition:background .2s;
+}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.2)}
+.lb-prev{left:-3.5rem}
+.lb-next{right:-3.5rem}
+
 /* CONTACT */
-.contact-head{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;margin-bottom:2rem}
+.contact-head{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,5vw,3.5rem);
+  line-height:1.1;margin-bottom:2rem;
+}
 .contact-links{display:flex;gap:0.75rem;flex-wrap:wrap}
 .c-link{
   font-size:0.82rem;font-weight:500;letter-spacing:0.03em;text-transform:uppercase;
@@ -141,25 +208,30 @@ section:last-of-type{border-bottom:none}
 }
 .c-link:hover{background:var(--ink);color:var(--sand)}
 .c-link.primary{background:var(--accent);color:white;border-color:var(--accent)}
-.c-link.primary:hover{background:#2e5139;border-color:#2e5139}
+.c-link.primary:hover{background:var(--green-dark);border-color:var(--green-dark)}
 
 footer{
   padding:1.75rem 0;
   display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid var(--rule);
 }
 .footer-note{font-size:0.78rem;color:var(--muted)}
 
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s,transform .55s}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.visible{opacity:1;transform:none}
 
-@media(max-width:720px){
+@media(max-width:760px){
   nav{padding:1rem 1.5rem}
-  .nav-links{gap:1.2rem}
-  .wrap{padding:0 1.5rem}
-  #hero{grid-template-columns:1fr;gap:2rem;padding:4rem 0 3rem}
-  .research-item,.exp-item,.edu-item{grid-template-columns:1fr;gap:0.5rem}
+  .nav-links{gap:1.25rem}
+  .wrap,.hero-bottom{padding:0 1.5rem}
+  #hero{padding:4rem 1.5rem 3rem;min-height:auto}
+  .theme-block{grid-template-columns:1fr;gap:1.5rem}
+  .research-item{grid-template-columns:1fr;gap:0.5rem}
   .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .interests-grid{grid-template-columns:1fr}
+  .skills-row{grid-template-columns:1fr;gap:1.5rem}
+  .lb-prev{left:-1rem}
+  .lb-next{right:-1rem}
   footer{flex-direction:column;gap:0.4rem;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
@@ -170,10 +242,8 @@ footer{
 <nav>
   <a href="#hero" class="nav-name">Simone Khan</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Work</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#research">Research</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#interests">Interests</a></li>
     <li><a href="#photos">Photos</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -181,116 +251,59 @@ footer{
 </nav>
 
 <!-- HERO -->
-<div class="wrap">
-  <div id="hero">
-    <div>
-      <p class="hero-eyebrow">New York, NY</p>
-      <h1 class="hero-name">Simone<br>Khan.<br><em>Globally<br>minded.</em></h1>
-      <div class="hero-pills">
-        <span class="pill">Economics</span>
-        <span class="pill">Sustainability</span>
-        <span class="pill">Public Policy</span>
-        <span class="pill">Photography</span>
-      </div>
-    </div>
-    <div class="hero-bio" id="about">
-      <p>I'm an economist and policy thinker based in New York, focused on the places where markets, sustainability, and public life intersect. I graduated from <strong>Barnard College of Columbia University</strong> with a degree in Economics and a minor in Science and Public Policy, and spent Spring 2025 at the <strong>University of Cambridge</strong>.</p>
-      <p>I've worked across sustainability investing, UN diplomacy, management consulting, and business operations. Outside of work, I'm into sports, travel, and building a photo diary of the world as I move through it.</p>
+<div id="hero">
+  <p class="hero-eyebrow">New York, NY</p>
+  <h1 class="hero-name">Simone<br>Khan.<br><em>Globally<br>minded.</em></h1>
+  <div class="hero-bottom">
+    <p class="hero-bio">
+      Economics graduate from <strong>Barnard College, Columbia University</strong> — interested in the places where markets, sustainability, and public life meet. I've worked across investing, diplomacy, and consulting, and spent a semester at the <strong>University of Cambridge</strong> in 2025.
+    </p>
+    <div class="hero-pills">
+      <span class="pill">Economics</span>
+      <span class="pill">Sustainability</span>
+      <span class="pill">Public Policy</span>
+      <span class="pill">Photography</span>
     </div>
   </div>
 </div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<!-- WORK -->
+<section id="work">
   <div class="wrap">
-    <p class="sec-label">Work experience</p>
+    <p class="sec-label">Things I care about</p>
+    <div class="theme-grid">
 
-    <div class="exp-item reveal">
-      <div class="exp-date">Jan 2026 — Present</div>
-      <div>
-        <div class="exp-role">Business Operations Intern</div>
-        <div class="exp-org">Emumba — New York</div>
-        <ul class="exp-bullets">
-          <li>Designed scalable, ISO-aligned systems to improve onboarding and distributed team collaboration</li>
-          <li>Applied GenAI and prompt engineering to streamline workflows and produce audit-ready documentation</li>
-        </ul>
+      <div class="theme-block reveal">
+        <div class="theme-left">
+          <div class="theme-color-bar bar-green"></div>
+          <div class="theme-title">Sustainability & Climate</div>
+        </div>
+        <div class="theme-right">
+          <p class="theme-intro">Carbon markets, green finance, climate-tech — figuring out where the money goes and whether it's actually doing anything. This is the thread that runs through most of my work and research, from analyzing climate-tech investments at a PE firm to writing about green and brown firms for my senior seminar.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="exp-item reveal">
-      <div class="exp-date">Feb 2026 — Present</div>
-      <div>
-        <div class="exp-role">Venture Fellow</div>
-        <div class="exp-org">Laconia Venture Cooperative — New York</div>
-        <ul class="exp-bullets">
-          <li>Selected for competitive fellowship covering fund structure, sourcing, due diligence, and portfolio management</li>
-          <li>Evaluate early-stage startups through market research, investment exercises, and pipeline review sessions</li>
-        </ul>
+      <div class="theme-block reveal">
+        <div class="theme-left">
+          <div class="theme-color-bar bar-blue"></div>
+          <div class="theme-title">Policy & Diplomacy</div>
+        </div>
+        <div class="theme-right">
+          <p class="theme-intro">Working at the UN during Pakistan's Security Council Presidency was one of the most formative things I've done — sitting in on high-level negotiations, drafting policy briefs on everything from the SDGs to miners' mental health reform. I'm drawn to the places where economics meets governance, development, and international law.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="exp-item reveal">
-      <div class="exp-date">Aug — Dec 2025</div>
-      <div>
-        <div class="exp-role">Sustainability and AI Analyst Intern</div>
-        <div class="exp-org">de Anda Capital LLC — New York</div>
-        <div class="exp-context">Principal-led PE/VC firm focused on building and scaling businesses across industries</div>
-        <ul class="exp-bullets">
-          <li>Analyzed carbon markets, direct air capture, and climate-tech investments, assessing tax credit and compliance frameworks</li>
-          <li>Produced investment briefs, models, and presentations informing strategy on AI-enabled sustainability and decarbonization</li>
-        </ul>
+      <div class="theme-block reveal">
+        <div class="theme-left">
+          <div class="theme-color-bar bar-amber"></div>
+          <div class="theme-title">Consulting & Ventures</div>
+        </div>
+        <div class="theme-right">
+          <p class="theme-intro">From early-stage startups to nonprofits to management consulting across three countries — I like the work of turning research into real decisions and helping organizations actually move.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="exp-item reveal">
-      <div class="exp-date">Jul — Dec 2025</div>
-      <div>
-        <div class="exp-role">Advisor, Fourth Committee</div>
-        <div class="exp-org">Permanent Mission of Pakistan to the United Nations — New York</div>
-        <ul class="exp-bullets">
-          <li>Supported senior diplomatic engagement during Pakistan's UN Security Council Presidency</li>
-          <li>Researched and drafted policy briefs on development challenges aligned with the SDGs, including a brief on miners' mental health reform drawing on analysis of the Mines Act (1923)</li>
-          <li>Attended high-level intergovernmental negotiations and contributed research to official positional statements</li>
-        </ul>
-      </div>
     </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-date">Sep — Dec 2024</div>
-      <div>
-        <div class="exp-role">Associate Consultant</div>
-        <div class="exp-org">Global Research and Consulting Group (GRC) — New York</div>
-        <ul class="exp-bullets">
-          <li>Delivered global policy research and management consulting for the Boys &amp; Girls Clubs of America</li>
-          <li>Built a client-facing pitch deck translating research into outreach and youth engagement recommendations</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-date">May — Aug 2024</div>
-      <div>
-        <div class="exp-role">Intern</div>
-        <div class="exp-org">Epiphany Management Consulting — Pakistan</div>
-        <ul class="exp-bullets">
-          <li>Assisted in RFP development and facilitated leadership and negotiation training workshops</li>
-          <li>Supported fintech market landscape analysis to inform investment decisions</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-date">May 2023 — Present</div>
-      <div>
-        <div class="exp-role">Vice President and Social Chair</div>
-        <div class="exp-org">Pakistani Students Association, Columbia University — New York</div>
-        <ul class="exp-bullets">
-          <li>Organised 20+ community, speaker, and general body events</li>
-          <li>Event Planning and Social Media Chair for the annual SOCH symposium on climate action, sustainability, and its effects on minority populations</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -300,11 +313,11 @@ footer{
     <p class="sec-label">Research</p>
 
     <div class="research-item reveal">
-      <span class="r-tag">2025–26</span>
+      <span class="r-tag">Current</span>
       <div>
         <div class="r-title">Interest Rate Sensitivity Between Green and Brown Firms with Sustainability Commitments</div>
-        <div class="r-desc">Examining how sustainability commitments shape firms' differential exposure to interest rate changes. Conducted as part of the Empirical Macrofinance senior seminar.</div>
-        <div class="r-where">Barnard College — Senior Seminar</div>
+        <div class="r-desc">Do sustainability commitments change how firms respond to interest rate shifts? Looking at green vs. brown firms through an empirical macro lens.</div>
+        <div class="r-where">Barnard College — Senior Seminar, Empirical Macrofinance</div>
       </div>
     </div>
 
@@ -312,7 +325,7 @@ footer{
       <span class="r-tag">Cambridge</span>
       <div>
         <div class="r-title">Hydropolitics of Cooperation in South Asia: The Indus Waters Treaty in a Changing Climate</div>
-        <div class="r-desc">How, if at all, do climate, geopolitical, and socio-economic threats to the Indus Waters Treaty enable a reappraisal of cooperation prospects between India and Pakistan?</div>
+        <div class="r-desc">How climate, geopolitics, and socio-economic pressures are reshaping prospects for India-Pakistan cooperation over shared water resources.</div>
         <div class="r-where">University of Cambridge — Dissertation, Spring 2025</div>
       </div>
     </div>
@@ -321,35 +334,8 @@ footer{
       <span class="r-tag">Cambridge</span>
       <div>
         <div class="r-title">Microcredit, Microfinance, and Education: A Rostow Model Analysis of Developing Economies</div>
-        <div class="r-desc">Investigating how microfinance mechanisms and educational access shape economic mobility and development outcomes, framed through Rostow's stages of economic growth.</div>
+        <div class="r-desc">Investigating how microfinance and educational access interact with Rostow's stages of growth to shape development trajectories in emerging markets.</div>
         <div class="r-where">University of Cambridge — Dissertation, Spring 2025</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="wrap">
-    <p class="sec-label">Education</p>
-
-    <div class="edu-item reveal">
-      <div class="edu-date">Graduated May 2026</div>
-      <div>
-        <div class="edu-school">Barnard College, Columbia University</div>
-        <div class="edu-degree">BA Economics — Minor in Science &amp; Public Policy</div>
-        <div class="edu-detail">Coursework: Computer Ethics &amp; Privacy, Accounting &amp; Finance, Environmental Economics, Applied Statistical Computing. Activities: Peer Tutor, Access Barnard Project Assistant, Intramural Sports Official, Phi Gamma Nu, Student Government Association.</div>
-        <span class="edu-honors">Dean's List — all eligible semesters · GPA 3.95</span>
-      </div>
-    </div>
-
-    <div class="edu-item reveal">
-      <div class="edu-date">Jan — Jun 2025</div>
-      <div>
-        <div class="edu-school">University of Cambridge</div>
-        <div class="edu-degree">Economics &amp; International Politics</div>
-        <div class="edu-detail">Activities: College Rowing and Badminton, Environmental Consulting Society, LanguageSoc (Secretary).</div>
       </div>
     </div>
 
@@ -360,55 +346,21 @@ footer{
 <section id="interests">
   <div class="wrap">
     <p class="sec-label">Outside of work</p>
-    <div class="hobbies-grid reveal">
-      <div class="hobby-card">
-        <div class="hobby-icon">⚽</div>
-        <div class="hobby-name">Sports</div>
-        <div class="hobby-desc">Always up for any sport — rowed at Cambridge, played intramurals at Barnard, and genuinely love being in the game.</div>
+    <div class="interests-grid reveal">
+      <div class="interest-card">
+        <div class="interest-label">Always</div>
+        <div class="interest-name">Sports</div>
+        <div class="interest-desc">Any sport, any time. Rowed at Cambridge, played intramurals at Columbia. Genuinely just love being in the game.</div>
       </div>
-      <div class="hobby-card">
-        <div class="hobby-icon">📸</div>
-        <div class="hobby-name">Photo diary</div>
-        <div class="hobby-desc">A visual archive of life as it happens — collections of images from places, people, and everyday moments.</div>
+      <div class="interest-card">
+        <div class="interest-label">Ongoing</div>
+        <div class="interest-name">Photo diary</div>
+        <div class="interest-desc">Shot on film. A way to collect pictures of places and memories.</div>
       </div>
-      <div class="hobby-card">
-        <div class="hobby-icon">🌍</div>
-        <div class="hobby-name">Travel</div>
-        <div class="hobby-desc">From New York to Cambridge to Karachi — always moving, always paying attention.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:3rem">
-      <p class="sec-label" style="margin-bottom:1.5rem">Skills &amp; languages</p>
-      <div class="skills-grid reveal">
-        <div>
-          <p class="skill-group-label">Technical</p>
-          <div class="skill-tags">
-            <span class="skill-tag">R</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">MS Office</span>
-            <span class="skill-tag">Google Suite</span>
-            <span class="skill-tag">Canva</span>
-            <span class="skill-tag">Social media</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Languages</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Urdu (native)</span>
-            <span class="skill-tag">Hindi (fluent)</span>
-            <span class="skill-tag">Spanish (elementary)</span>
-          </div>
-        </div>
-        <div>
-          <p class="skill-group-label">Interests</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Technology policy</span>
-            <span class="skill-tag">Financial inclusion</span>
-            <span class="skill-tag">Public health</span>
-            <span class="skill-tag">Emerging markets</span>
-          </div>
-        </div>
+      <div class="interest-card">
+        <div class="interest-label">Whenever possible</div>
+        <div class="interest-name">Travel</div>
+        <div class="interest-desc">Love exploring new places, cultures, and cuisines. New York, Cambridge, Karachi, Porto, Vienna — always moving.</div>
       </div>
     </div>
   </div>
@@ -418,21 +370,58 @@ footer{
 <section id="photos">
   <div class="wrap">
     <p class="sec-label">Photos</p>
+    <p class="photo-intro">All shot on film. Hover to see where.</p>
     <div class="photo-grid">
-      <!--
-        To add photos, replace <div class="photo-slot"></div>
-        with: <div class="photo-slot"><img src="your-photo.jpg" alt="description"></div>
-        Works great for UN photos, travel shots, anything from your diary.
-      -->
-      <div class="photo-slot"></div>
-      <div class="photo-slot"></div>
-      <div class="photo-slot"></div>
-      <div class="photo-slot"></div>
-      <div class="photo-slot"></div>
-      <div class="photo-slot"></div>
+      <div class="photo-item" onclick="openLightbox(0)">
+        <img src="photo1.jpg" alt="Pembroke College boathouse, Cambridge">
+        <div class="photo-caption">Pembroke College boathouse, Cambridge, 2025</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(1)">
+        <img src="photo2.jpg" alt="Lake Garda, Italy">
+        <div class="photo-caption">Lake Garda, Italy</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(2)">
+        <img src="photo3.jpg" alt="Pages café, Cambridge">
+        <div class="photo-caption">Pages café, Cambridge</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(3)">
+        <img src="photo4.jpg" alt="Expression of love, New York, 2026">
+        <div class="photo-caption">Expression of love, New York, 2026</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(4)">
+        <img src="photo5.jpg" alt="Vienna tram">
+        <div class="photo-caption">Vienna</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(5)">
+        <img src="photo6.jpg" alt="Columbia University, Low Library, 2026">
+        <div class="photo-caption">Low Library, Columbia University, 2026</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(6)">
+        <img src="photo7.jpg" alt="Porto, Portugal, 2025">
+        <div class="photo-caption">Porto, Portugal, 2025</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(7)">
+        <img src="photo8.jpg" alt="Porto, Portugal, 2025">
+        <div class="photo-caption">Porto, Portugal, 2025</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(8)">
+        <img src="photo9.jpg" alt="Low Library, Columbia University, 2026">
+        <div class="photo-caption">Low Library, Columbia University — the hustle and bustle, 2026</div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightboxBtn()">✕</button>
+    <button class="lb-prev" onclick="changePhoto(-1)">←</button>
+    <button class="lb-next" onclick="changePhoto(1)">→</button>
+    <img id="lb-img" src="" alt="">
+    <p class="lightbox-cap" id="lb-cap"></p>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -440,10 +429,9 @@ footer{
     <p class="sec-label">Get in touch</p>
     <h2 class="contact-head reveal">Always happy<br>to connect.</h2>
     <div class="contact-links reveal">
-      <a href="mailto:ssk2268@barnard.edu" class="c-link primary">Email me</a>
-      <a href="https://linkedin.com/in/yourhandle" class="c-link" target="_blank">LinkedIn</a>
-      <a href="https://sskhan.hcommons.org" class="c-link" target="_blank">Humanities Commons</a>
-      <a href="#" class="c-link">Download CV</a>
+      <a href="mailto:simoneshahzadkhan@gmail.com" class="c-link primary">Email me</a>
+      <a href="https://www.linkedin.com/in/simonekhan/" class="c-link" target="_blank">LinkedIn</a>
+      <a href="cv.pdf" class="c-link" download>Download CV</a>
     </div>
   </div>
 </section>
@@ -456,10 +444,47 @@ footer{
 </div>
 
 <script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const photos = [
+  {src:'photo1.jpg', cap:'Pembroke College boathouse, Cambridge, 2025'},
+  {src:'photo2.jpg', cap:'Lake Garda, Italy'},
+  {src:'photo3.jpg', cap:'Pages café, Cambridge'},
+  {src:'photo4.jpg', cap:'Expression of love, New York, 2026'},
+  {src:'photo5.jpg', cap:'Vienna'},
+  {src:'photo6.jpg', cap:'Low Library, Columbia University, 2026'},
+  {src:'photo7.jpg', cap:'Porto, Portugal, 2025'},
+  {src:'photo8.jpg', cap:'Porto, Portugal, 2025'},
+  {src:'photo9.jpg', cap:'Low Library, Columbia University — the hustle and bustle, 2026'},
+];
+let current = 0;
+function openLightbox(i){
+  current=i;
+  document.getElementById('lb-img').src=photos[i].src;
+  document.getElementById('lb-cap').textContent=photos[i].cap;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightboxBtn(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeLightbox(e){
+  if(e.target===document.getElementById('lightbox')) closeLightboxBtn();
+}
+function changePhoto(dir){
+  current=(current+dir+photos.length)%photos.length;
+  openLightbox(current);
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='ArrowRight') changePhoto(1);
+  if(e.key==='ArrowLeft') changePhoto(-1);
+  if(e.key==='Escape') closeLightboxBtn();
+});
+
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 </body>
